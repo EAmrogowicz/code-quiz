@@ -32,7 +32,8 @@ button:hover {
 
 .choices button {
   display: block;
-  margin-left: 16px;
+  cursor: pointer;
+  padding: 2px 10px;
 }
 
 input[type="text"] {
@@ -86,4 +87,31 @@ li:nth-child(odd) {
   position: absolute;
   top: 10px;
   right: 10px;
+}
+
+.responded {
+  color: lightslategray;
+}
+
+.responded-btn:hover {
+  color: #333;
+  background-color: lightgray;
+}
+
+.responded-btn-correct:hover {
+  color: green;
+  background-color: lightgray;
+}
+
+.responded-btn-wrong:hover {
+  color: red;
+  background-color: lightgray;
+}
+
+.responceResult {
+  font-style: italic;
+  font-weight: 400;
+  margin-top: 64px;
+  padding-top: 8px;
+  border-top: 1px solid #333;
 }
