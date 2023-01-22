@@ -7,7 +7,8 @@ const endScreen = document.getElementById("end-screen");
 const finalScore = document.getElementById("final-score");
 const userID = document.getElementById("initials");
 const signUpButton = document.getElementById("submit");
-var msgDiv = document.querySelector("#msg");
+const msgDiv = document.querySelector("#msg");
+const time = document.getElementById("time");
 
 // total number of questions
 const questionsNumber = 3;
@@ -16,10 +17,33 @@ let currentQuestion = 0;
 let questionAnswered = false;
 let score = 0;
 
+let secondsLeft = 45;
+
+function startCountdown() {
+  let timerInterval = setInterval(function () {
+    secondsLeft--;
+    time.textContent = secondsLeft;
+
+    if (secondsLeft < 11) {
+      time.setAttribute("style", "color: #ee442f");
+    }
+
+    if (secondsLeft === 0) {
+      // Stops execution of action at set interval
+      clearInterval(timerInterval);
+      // Calls function to create and append image
+      console.log("Ding!");
+    }
+  }, 1000);
+}
+
 // renders the first question
 function startQuiz() {
   startScreenDiv.classList.add("hide");
   questionsDiv.classList.remove("hide");
+
+  time.textContent = "45";
+  startCountdown();
 }
 
 function resultQuiz() {
@@ -58,10 +82,10 @@ function choiceCheck(btn) {
       btn.setAttribute("style", "background-color: #219ebc; color: white;");
       // adds points to score
       score = score + 1;
-      // console.log(score);
     } else {
       message = "Wrong!";
       btn.setAttribute("style", "background-color: #ee442f; color: white;");
+      secondsLeft = secondsLeft - 10;
     }
 
     // change the style of the question - greyed out
