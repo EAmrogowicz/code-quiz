@@ -4,6 +4,7 @@ const questionsDiv = document.getElementById("questions");
 const questionTitle = document.getElementById("question-title");
 const choicesList = document.getElementById("choices-list");
 const endScreen = document.getElementById("end-screen");
+const finalmsg = document.getElementById("final-msg");
 const finalScore = document.getElementById("final-score");
 const userID = document.getElementById("initials");
 const signUpButton = document.getElementById("submit");
@@ -17,7 +18,8 @@ let currentQuestion = 0;
 let questionAnswered = false;
 let score = 0;
 
-let secondsLeft = 45;
+let secondsLeft = 10;
+let timeStop = false;
 
 function startCountdown() {
   let timerInterval = setInterval(function () {
@@ -32,7 +34,8 @@ function startCountdown() {
       // Stops execution of action at set interval
       clearInterval(timerInterval);
       // Calls function to create and append image
-      console.log("Ding!");
+      resultQuiz();
+      finalmsg.textContent = "Sorry, you run out of time!";
     }
   }, 1000);
 }
@@ -42,6 +45,7 @@ function startQuiz() {
   startScreenDiv.classList.add("hide");
   questionsDiv.classList.remove("hide");
 
+  // start count down
   time.textContent = "45";
   startCountdown();
 }
@@ -85,6 +89,7 @@ function choiceCheck(btn) {
     } else {
       message = "Wrong!";
       btn.setAttribute("style", "background-color: #ee442f; color: white;");
+      //reduce time by 10s
       secondsLeft = secondsLeft - 10;
     }
 
@@ -107,17 +112,20 @@ function choiceCheck(btn) {
     );
     nextButton.addEventListener("click", nextQuestion);
 
-    // shows result button
+    // view result button
     if (currentQuestion === questionsNumber - 1) {
       choicesList.removeChild(nextButton);
-      let showResult = document.createElement("button");
-      showResult.textContent = "VIEW RESULTS";
-      choicesList.appendChild(showResult);
-      showResult.setAttribute(
+      let viewResult = document.createElement("button");
+      viewResult.textContent = "VIEW RESULTS";
+      choicesList.appendChild(viewResult);
+      viewResult.setAttribute(
         "style",
         "background-color: #1d3557; color: white;"
       );
-      showResult.addEventListener("click", resultQuiz);
+
+      //* ***************************** */
+      // ADD TIME STOP HERR!
+      viewResult.addEventListener("click", resultQuiz);
     }
 
     console.log(score);
