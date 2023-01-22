@@ -22,14 +22,12 @@
           limit. Keep in mind that incorrect answers will penalize your
           score/time by ten seconds!
         </p>
-        <button id="start">Start Quiz</button>
+        <button id="start" class="start">Start Quiz</button>
       </div>
 
       <div id="questions" class="hide">
         <h2 id="question-title">TEST</h2>
-        <div id="choices-list" class="choices">
-          <!-- <ul id="choices-list"></ul> -->
-        </div>
+        <div id="choices-list" class="choices"></div>
       </div>
 
       <div id="end-screen" class="hide">
@@ -37,12 +35,15 @@
         <p>Your final score is <span id="final-score"></span>.</p>
         <p>
           Enter initials: <input type="text" id="initials" max="3" />
+        
           <button id="submit">Submit</button>
         </p>
+          <div id="msg"></div>
       </div>
-
+      
+<!-- 
       <div id="feedback" class="feedback hide"></div>
-    </div>
+    </div> -->
 
     <script src="./js/questions.js"></script>
     <script src="./js/logic.js"></script>
