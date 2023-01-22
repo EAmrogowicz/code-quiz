@@ -127,12 +127,14 @@ startButton.addEventListener("click", startQuiz);
 
 quizGame();
 
+// submit user id and score to local storage
 signUpButton.addEventListener("click", function (event) {
   event.preventDefault();
 
-  // create user object from submission
+  // creates array in local storage to save users scores
   const usersHighScores = JSON.parse(localStorage.getItem("usersHighScores"));
 
+  // creates user object from submission
   const user = {
     id: userID.value,
     finalScore: score,
@@ -156,13 +158,7 @@ signUpButton.addEventListener("click", function (event) {
       localStorage.setItem("usersHighScores", JSON.stringify(usersHighScores));
     }
 
+    //open highscores page
     window.open("highscores.html", "_self");
-
-    // get most recent submission
-    // const lastUser = localStorage.getItem("user");
-    // userFirstNameSpan.textContent = lastUser.firstName;
-    // userLastNameSpan.textContent = lastUser.lastName;
-    // userEmailSpan.textContent = lastUser.email;
-    // userPasswordSpan.textContent = lastUser.password;
   }
 });
