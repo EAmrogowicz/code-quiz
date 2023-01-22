@@ -131,8 +131,10 @@ signUpButton.addEventListener("click", function (event) {
   event.preventDefault();
 
   // create user object from submission
+  const usersHighScores = JSON.parse(localStorage.getItem("usersHighScores"));
+
   const user = {
-    id: userID.value.trim(),
+    id: userID.value,
     finalScore: score,
   };
 
@@ -146,10 +148,18 @@ signUpButton.addEventListener("click", function (event) {
 
     // set new submission
     console.log(user);
-    localStorage.setItem("user", user);
+
+    if (usersHighScores === null) {
+      localStorage.setItem("usersHighScores", JSON.stringify([user]));
+    } else {
+      usersHighScores.push(user);
+      localStorage.setItem("usersHighScores", JSON.stringify(usersHighScores));
+    }
+
+    window.open("highscores.html", "_self");
 
     // get most recent submission
-    // var lastUser = localStorage.getItem("user");
+    // const lastUser = localStorage.getItem("user");
     // userFirstNameSpan.textContent = lastUser.firstName;
     // userLastNameSpan.textContent = lastUser.lastName;
     // userEmailSpan.textContent = lastUser.email;
