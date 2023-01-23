@@ -18,7 +18,7 @@ let currentQuestion = 0;
 let questionAnswered = false;
 let score = 0;
 
-let secondsLeft = 10;
+let secondsLeft = 30;
 let timeStop = false;
 
 function startCountdown() {
@@ -46,7 +46,7 @@ function startQuiz() {
   questionsDiv.classList.remove("hide");
 
   // start count down
-  time.textContent = "45";
+  time.textContent = "30";
   startCountdown();
 }
 
@@ -69,6 +69,16 @@ function displayMessage(type, message) {
   msgDiv.setAttribute("class", type);
 }
 
+function soundPlayCorrect() {
+  const audioCorrect = new Audio("./sfx/correct.wav");
+  audioCorrect.play();
+}
+
+function soundPlayIncorrect() {
+  const audioIncorrect = new Audio("./sfx/incorrect.wav");
+  audioIncorrect.play();
+}
+
 //checks the answer
 function choiceCheck(btn) {
   btn.addEventListener("click", function (e) {
@@ -83,11 +93,13 @@ function choiceCheck(btn) {
     let message;
     if (btn.textContent === questions[currentQuestion].correctChoice) {
       message = "Correct!";
+      soundPlayCorrect();
       btn.setAttribute("style", "background-color: #219ebc; color: white;");
       // adds points to score
       score = score + 1;
     } else {
       message = "Wrong!";
+      soundPlayIncorrect();
       btn.setAttribute("style", "background-color: #ee442f; color: white;");
       //reduce time by 10s
       secondsLeft = secondsLeft - 10;
@@ -125,6 +137,7 @@ function choiceCheck(btn) {
 
       //* ***************************** */
       // ADD TIME STOP HERR!
+
       viewResult.addEventListener("click", resultQuiz);
     }
 
