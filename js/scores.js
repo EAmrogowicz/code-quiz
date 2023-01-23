@@ -3,6 +3,7 @@ const clearScores = document.getElementById("clear");
 
 const highlight = location.search.slice(1) === "gameFinished";
 
+// downloads data from local storage
 const usersHighScores = JSON.parse(localStorage.getItem("usersHighScores"));
 
 function renderHighScores() {
@@ -17,14 +18,15 @@ function renderHighScores() {
     lastResult = usersHighScores.at(-1);
   }
 
-  // return message if there is not even one score in storage
+  // returns message if there is not even one score in storage
   if (usersHighScores === null) {
     const h3 = document.createElement("h3");
     h3.textContent = "No score saved yet!";
+    h3.setAttribute("style", "color: #219ebc; ");
     highscores.appendChild(h3);
     return;
   } else if (usersHighScores.length > 1) {
-    // sort by score if there is more than one input
+    // sorts by score if there is more than one input
     // prints only top 5 scores
     sortedUserHighScores = usersHighScores
       .sort((a, b) => b.finalScore - a.finalScore)
@@ -41,7 +43,7 @@ function renderHighScores() {
     const li = document.createElement("li");
     li.textContent = `${user.id}:   ${user.finalScore}`;
 
-    // highlight your/last score in the list
+    // highlights your/last score in the list
     if (highlight && !highlighted && user === lastResult) {
       highlighted = true;
       li.setAttribute("style", "background-color: #8ecae6; ");
@@ -50,7 +52,7 @@ function renderHighScores() {
     highscores.appendChild(li);
   });
 
-  // render your score below top 5
+  // renders your score below top 5
   if (!highlighted) {
     const p = document.createElement("p");
     p.textContent = `\n  Sorry! ${lastResult.id}:   ${lastResult.finalScore}`;
@@ -62,7 +64,7 @@ function renderHighScores() {
   }
 }
 
-// clear all scores from the list
+// clears all scores from the list
 clearScores.addEventListener("click", function (event) {
   localStorage.removeItem("usersHighScores");
   highscores.innerHTML = "";

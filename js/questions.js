@@ -75,9 +75,14 @@ const questions = [
   },
   {
     question:
-      "When an operator’s value is NULL, the typeof returned by the unary operator is:",
+      "When an operator’s value is NULL, the typeof returned by the value of operator is:",
     choices: ["Boolean", "Undefined", "Object", "Integer"],
     correctChoice: "Object",
+  },
+  {
+    question: "Function is Used To Parse a String To Int",
+    choices: ["Integer.Parse()", "Int.Parse()", "None", "ParseInt()"],
+    correctChoice: "ParseInt()",
   },
 ];
 

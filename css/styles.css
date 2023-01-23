@@ -72,7 +72,7 @@ li {
 }
 
 li:nth-child(odd) {
-  background-color: #f3edfc;
+  background-color: #e5e5e5;
 }
 
 .wrapper {
@@ -128,7 +128,7 @@ li:nth-child(odd) {
   visibility: hidden;
   font-style: italic;
   font-weight: 400;
-  font-size: 12px;
+  font-size: 16px;
 }
 
 #msg.success,

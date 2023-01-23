@@ -12,7 +12,7 @@
   <body>
     <div class="scores"><a href="highscores.html">View Highscores</a></div>
 
-    <div class="timer">Time: <span id="time">30</span></div>
+    <div class="timer">Time: <span id="time">150</span>s</div>
 
     <div class="wrapper">
       <div id="start-screen" class="start">
@@ -33,18 +33,14 @@
       <div id="end-screen" class="hide">
         <h2 id="final-msg">All done!</h2>
         <p class="final-score-msg">Your final score is <span id="final-score"></span>.</p>
-         <div id="msg"></div>
+       
         <p >
           Enter initials: <input type="text" id="initials" max="3" />
-        
           <button id="submit">Submit</button>
         </p>
+        <p id="msg"></p>
          
       </div>
-      
-<!-- 
-      <div id="feedback" class="feedback hide"></div>
-    </div> -->
 
     <script src="./js/questions.js"></script>
     <script src="./js/logic.js"></script>
