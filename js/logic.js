@@ -12,17 +12,19 @@ const msgDiv = document.querySelector("#msg");
 const time = document.getElementById("time");
 
 // total number of questions
-const questionsNumber = 3;
+const questionsNumber = questions.length;
 // question count starts from 0
 let currentQuestion = 0;
 let questionAnswered = false;
 let score = 0;
 
-let secondsLeft = 30;
-let timeStop = false;
+let secondsLeft = 60;
+// let gameFinished = false;
+
+let timerInterval;
 
 function startCountdown() {
-  let timerInterval = setInterval(function () {
+  timerInterval = setInterval(function () {
     secondsLeft--;
     time.textContent = secondsLeft;
 
@@ -126,6 +128,8 @@ function choiceCheck(btn) {
 
     // view result button
     if (currentQuestion === questionsNumber - 1) {
+      clearInterval(timerInterval);
+
       choicesList.removeChild(nextButton);
       let viewResult = document.createElement("button");
       viewResult.textContent = "VIEW RESULTS";
@@ -204,6 +208,6 @@ signUpButton.addEventListener("click", function (event) {
     }
 
     //open highscores page
-    window.open("highscores.html", "_self");
+    window.open("highscores.html?gameFinished", "_self");
   }
 });

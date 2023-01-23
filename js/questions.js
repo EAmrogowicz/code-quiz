@@ -41,38 +41,49 @@ const questions = [
     ],
     correctChoice: "It is an ordered list of values",
   },
-  {
-    question: "Why event handlers is needed in JS?",
-    choices: [
-      "Adds innerHTML page to the code",
-      "Change the server location",
-      "Performs handling of exceptions and occurrences",
-      "Allows JavaScript code to alter the behaviour of windows",
-    ],
-    correctChoice: "Allows JavaScript code to alter the behaviour of windows",
-  },
-  {
-    question:
-      "Which of the following methods is used to access HTML elements using Javascript?",
-    choices: [
-      "getElementbyId()",
-      "getElementByClassname()",
-      "Both above",
-      "None of the above",
-    ],
-    correctChoice: "Both above",
-  },
-  {
-    question:
-      "Upon encountering empty statements, what does the Javascript Interpreter do?",
-    choices: [
-      "Throws an error",
-      "Ignores the statement",
-      "Gives a warning",
-      "None of the above",
-    ],
-    correctChoice: "Ignores the statement",
-  },
+  // {
+  //   question: "Why event handlers is needed in JS?",
+  //   choices: [
+  //     "Adds innerHTML page to the code",
+  //     "Change the server location",
+  //     "Performs handling of exceptions and occurrences",
+  //     "Allows JavaScript code to alter the behaviour of windows",
+  //   ],
+  //   correctChoice: "Allows JavaScript code to alter the behaviour of windows",
+  // },
+  // {
+  //   question:
+  //     "Which of the following methods is used to access HTML elements using Javascript?",
+  //   choices: [
+  //     "getElementbyId()",
+  //     "getElementByClassname()",
+  //     "Both above",
+  //     "None of the above",
+  //   ],
+  //   correctChoice: "Both above",
+  // },
+  // {
+  //   question:
+  //     "Upon encountering empty statements, what does the Javascript Interpreter do?",
+  //   choices: [
+  //     "Throws an error",
+  //     "Ignores the statement",
+  //     "Gives a warning",
+  //     "None of the above",
+  //   ],
+  //   correctChoice: "Ignores the statement",
+  // },
+  // {
+  //   question:
+  //     "When an operator’s value is NULL, the typeof returned by the unary operator is:",
+  //   choices: [
+  //     "Boolean",
+  //     "Undefined",
+  //     "Object",
+  //     "Integer",
+  //   ],
+  //   correctChoice: "Object",
+  // },
 ];
 
 console.log(questions);
