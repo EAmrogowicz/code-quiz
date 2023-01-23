@@ -11,44 +11,54 @@ function renderHighScores() {
   // sorts user's scores
   let sortedUserHighScores = [];
 
-  if (usersHighScores === null) {
-    //text
-  }
-
   let lastResult;
   if (highlight) {
-    //last result isd assigned to last element in an array
+    // the most recent result is assigned to last element in an array
     lastResult = usersHighScores.at(-1);
   }
 
-  if (usersHighScores.length > 1) {
-    // sort by score if thre is more than one input
+  // return message if there is not even one score in storage
+  if (usersHighScores === null) {
+    const h3 = document.createElement("h3");
+    h3.textContent = "No score saved yet!";
+    highscores.appendChild(h3);
+    return;
+  } else if (usersHighScores.length > 1) {
+    // sort by score if there is more than one input
+    // prints only top 5 scores
     sortedUserHighScores = usersHighScores
       .sort((a, b) => b.finalScore - a.finalScore)
       .slice(0, 5);
   } else {
+    // first score is not sorted
     sortedUserHighScores = usersHighScores;
   }
 
   let highlighted = false;
 
-  // creates list with the user initilaas and score
+  // creates list with the user initials and score
   sortedUserHighScores.forEach((user) => {
     const li = document.createElement("li");
     li.textContent = `${user.id}:   ${user.finalScore}`;
 
+    // highlight your/last score in the list
     if (highlight && !highlighted && user === lastResult) {
       highlighted = true;
-      li.setAttribute("style", "background-color: #1d3557; color: white;");
+      li.setAttribute("style", "background-color: #8ecae6; ");
     }
 
     highscores.appendChild(li);
   });
+
+  // render your score below top 5
   if (!highlighted) {
-    const li = document.createElement("li");
-    li.textContent = `${lastResult.id}:   ${lastResult.finalScore}`;
-    li.setAttribute("style", "background-color: #ee442f; color: white;");
-    highscores.appendChild(li);
+    const p = document.createElement("p");
+    p.textContent = `\n  Sorry! ${lastResult.id}:   ${lastResult.finalScore}`;
+    p.setAttribute(
+      "style",
+      "color: #1d3557; border-top: 1px solid #1d3557; padding:4px"
+    );
+    highscores.appendChild(p);
   }
 }
 
