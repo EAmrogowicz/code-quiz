@@ -21,7 +21,7 @@ let questionAnswered = false;
 let score = 0;
 
 // sets the time
-let secondsLeft = 150;
+let secondsLeft = 100;
 
 let timerInterval;
 
@@ -49,7 +49,7 @@ function startQuiz() {
   startScreenDiv.classList.add("hide");
   questionsDiv.classList.remove("hide");
   // start count down
-  time.textContent = "150";
+  time.textContent = "100";
   startCountdown();
 }
 
