@@ -6,7 +6,7 @@ A timed coding quiz with multiple-choice questions about JavaScript basics. The
 app runs in the browser, and features dynamically updated HTML and CSS powered
 by JavaScript code. It has a clean, polished, and responsive user interface.
 
-RULES: You have 15s per question (10 in total). Every wrong answer deduces 10s
+RULES: You have 10s per question (10 in total). Every wrong answer deduces 10s
 from your leftover time. You get 1 point for correct answer and the end you can
 save your score to local storage. Have fun!
 

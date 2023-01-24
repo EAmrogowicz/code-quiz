@@ -49,7 +49,6 @@ function startQuiz() {
   startScreenDiv.classList.add("hide");
   questionsDiv.classList.remove("hide");
   // start count down
-  time.textContent = "100";
   startCountdown();
 }
 
