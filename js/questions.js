@@ -85,5 +85,3 @@ const questions = [
     correctChoice: "ParseInt()",
   },
 ];
-
-console.log(questions);
